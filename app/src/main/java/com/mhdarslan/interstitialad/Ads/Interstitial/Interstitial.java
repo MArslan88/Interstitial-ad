@@ -19,6 +19,7 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.mhdarslan.interstitialad.MainActivity;
+import com.mhdarslan.interstitialad.R;
 import com.mhdarslan.interstitialad.SecondActivity;
 
 public class Interstitial {
@@ -48,8 +49,6 @@ public class Interstitial {
                     // Set the ad reference to null so you don't show the ad a second time.
                     Log.d(TAG, "Ad dismissed fullscreen content.");
                     context.startActivity(new Intent(context, destinationActivity));
-//                        mInterstitialAd = null;
-//                        loadInters(); // it will load new ad for again
                     loadInters();
                 }
 
@@ -87,7 +86,7 @@ public class Interstitial {
         });
         AdRequest adRequest = new AdRequest.Builder().build();
 
-        InterstitialAd.load(context, "ca-app-pub-3940256099942544/1033173712", adRequest,
+        InterstitialAd.load(context, activity.getString(R.string.interstitial_unit_id), adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
                     public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
